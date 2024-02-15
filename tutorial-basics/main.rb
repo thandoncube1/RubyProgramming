@@ -45,3 +45,31 @@ puts sentence
 # split method
 words = sentence.split(' ')
 puts words
+
+# substrings
+greet = "Hello world".freeze
+puts greet[0..3]
+
+puts greet[-1]
+
+puts greet.upcase()
+puts greet.downcase()
+puts greet.capitalize()
+puts greet.reverse()
+puts greet.include? 'w'
+puts greet.start_with? 'H'
+puts greet.end_with? 'd'
+
+# Immutabillity and Frozen strings
+
+# greet[0] = ""
+# puts greet.frozen?
+
+# object_id
+string_one = "tommy".freeze
+string_two = "tommy".freeze
+puts string_one.frozen?
+puts string_one.object_id == string_two.object_id
+
+string_one = "Thando"
+puts string_one
