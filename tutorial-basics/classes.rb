@@ -37,9 +37,11 @@ puts Object.class
 puts String.class
 
 class Customer
+    # This is a class variable that 
+    # affects the whole class not specific to an object.
     @@customer_count = 0
 
-    def self.count
+    def self.count # class method calling self
         @@customer_count
     end
 
