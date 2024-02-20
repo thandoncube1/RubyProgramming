@@ -7,7 +7,7 @@ def test_method
 end
 
 test_method
-puts "Variable inside method: #{x}"
+# puts "Variable inside method: #{x}"
 
 =begin
 undefined local variable or method `x' for main:Object (NameError)
@@ -40,3 +40,30 @@ user = User.new(first_name: "John", last_name: "Doe")
 
 # Return full name
 user.full_name # => "John Doe"
+
+# Class Variables
+=begin
+Class variables begin with a double @@ symbol and are shared among
+all instances of a class and its subclasses. They retain their values
+across different objects of the same class
+=end
+
+class Animal
+    # Total number of existing animals
+    @@total = 0
+
+    # Add one more animal when a new instance is created
+    def initialize
+        @@total += 1
+    end
+
+    def self.total
+        @@total
+    end
+end
+
+puts Animal.total # => 0
+Animal.new
+puts Animal.total # => 1
+Animal.new
+puts Animal.total # => 2
