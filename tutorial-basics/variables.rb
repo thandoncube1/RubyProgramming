@@ -107,3 +107,50 @@ end
 
 circle = Circle.new(radius: 3)
 puts circle.area # => 28.26
+
+# Constants
+
+=begin
+This is a special type of variable in Ruby. Constants must start with
+a capital letter by convention written in ALL_CAPS. Although, it is a constant  its value can be changed but will throw a warning to let you know that
+you are trying to change the value of a Constant.
+=end
+
+class Cat
+    LEGS = 4
+end
+
+puts Cat::LEGS # => 4
+
+# Constants are also inherited from the parent class.
+class Foxy < Cat; end
+
+puts Foxy::LEGS # => 4
+
+# Same concept also with modules:
+
+module Human
+    LEGS = 2
+end
+
+puts Human::LEGS # => 2
+
+# When you define a constant iside a method Ruby raises a 
+# syntax error.
+
+def spider_legs
+    LEGS = 8
+end # => Dynamic constant assignment (SyntaxError)
+
+# However you can still use it in the global context
+LEGS = 99
+puts LEGS # => 99
+
+=begin
+As mentioned before constants can be changed without raising
+an error, but still Ruby keeps an eye on us and informs us by
+desplaying a warning.
+=end
+
+LEGS = 98 # => warning: already initialized constant LEGS
+          # => warning: previous definition of Legs was here
