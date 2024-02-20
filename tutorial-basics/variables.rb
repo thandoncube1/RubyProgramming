@@ -67,3 +67,15 @@ Animal.new
 puts Animal.total # => 1
 Animal.new
 puts Animal.total # => 2
+
+=begin
+As mentioned above or before it's shared across subclasses too.
+=end
+
+# Define Dog class
+class Dog < Animal; end
+
+# Create 2 dog instances
+Dog.new
+Dog.new
+puts Animal.total # => 4
