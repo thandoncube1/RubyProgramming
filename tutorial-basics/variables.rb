@@ -79,3 +79,31 @@ class Dog < Animal; end
 Dog.new
 Dog.new
 puts Animal.total # => 4
+
+# Global variables
+=begin
+Global variables start with a dollar sign $ and can be accessed
+from anywhere within the program. They should be used sparingly due to their global scope, which can lead to unintended side effects and make code harder to maintain.
+=end
+
+# Arithmetics class with global pi number
+class Arithmetic
+    $pi = 3.14
+end
+
+# We have access to pi outside the class
+puts $pi # => 3.14
+# Circle class that calculates the area of a circle
+class Circle
+    def initialize(radius:)
+        @radius = radius
+    end
+
+    def area
+        # We have access to pi here
+        $pi * @radius ** 2
+    end
+end
+
+circle = Circle.new(radius: 3)
+puts circle.area # => 28.26
